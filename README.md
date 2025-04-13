@@ -1,0 +1,1 @@
+This is a web Based Blood Bank Management System aimed for 2nd year Project for DBMS course, Done by ABHISHEK
