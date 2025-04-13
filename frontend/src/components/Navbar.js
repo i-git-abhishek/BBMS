@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // 👈 Don't forget this import
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-container">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           BBMS
@@ -19,9 +19,9 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <Link className="nav-link active" to="/">
+        <div className="collapse navbar-collapse navbar" id="navbarNavAltMarkup">
+          <div className="navbar-nav navbar-child" >
+            <Link className="nav-link" to="/">
               Home
             </Link>
             <Link className="nav-link" to="/BloodStock">

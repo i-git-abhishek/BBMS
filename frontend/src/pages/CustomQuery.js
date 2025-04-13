@@ -5,7 +5,7 @@ const CustomQuery = () =>{
     return(
         <>
         <Navbar />
-        <h2> Custom Query Here</h2>
+        
         </>
     );
 }

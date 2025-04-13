@@ -5,6 +5,7 @@ import BloodStock from './pages/BloodStock';
 import Hospitals from './pages/Hospitals';
 import CustomQuery from './pages/CustomQuery';
 import AboutUs from './pages/AboutUs';
+import './App.css';
 
 function App() {
   return (

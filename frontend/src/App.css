@@ -1,0 +1,22 @@
+.navbar-container{
+    background: red;
+    border-radius:  0px 0px 10px 10px;
+}
+.navbar-container a{
+    color: white;
+}
+
+.navbar-container a.active{
+    color: white; 
+    font-weight: bold;
+}
+
+.navbar{
+    position: relative;
+}
+
+.navbar-child{
+    position: absolute;
+    right: 0;
+    padding-right: 4vw;
+}
