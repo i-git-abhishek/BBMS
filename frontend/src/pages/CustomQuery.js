@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./CustomQuery.css";
 import api from "../api";
@@ -28,10 +28,46 @@ const CustomQuery = () => {
 
       <div className="div2">
         <div className="div3">
-          {/* <div className="div4"> */}
-          <input type="text" className="input-box" required size="100" />
-          {/* </div> */}
+          <textarea
+            className="input-box"
+            rows="4"
+            cols="60"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Enter SQL command (e.g. SELECT * FROM users);"
+          />
         </div>
+      </div>
+      <div className="div4">
+        <button className="Run-btn" onClick={runQuery}>
+          Run
+        </button>
+      </div>
+      <div className="div5">
+        {error && <p style={{ color: "red" }}>{error}</p>}
+
+        {result && result.length > 0 && (
+          <table border="1" cellPadding="8" style={{ marginTop: "1rem" }}>
+            <thead>
+              <tr>
+                {Object.keys(result[0]).map((key) => (
+                  <th key={key}>{key}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {result.map((row, i) => (
+                <tr key={i}>
+                  {Object.values(row).map((val, j) => (
+                    <td key={j}>{val !== null ? val.toString() : "NULL"}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        {result && result.length === 0 && <p>No rows returned.</p>}
       </div>
     </>
   );

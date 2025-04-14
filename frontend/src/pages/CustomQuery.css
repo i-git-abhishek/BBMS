@@ -21,14 +21,23 @@
     border-radius: 8px;
     
 }
-/* .div4{
+
+.div4{
     display: flex;
     justify-content: center;
-    border: 2px dashed black;
-    margin: 1vh 0;
-    height: 28vh;
-    width: 40vw;
-} */
+    border: 2px solid black;
+}
+
+.Run-btn{
+    border: 5px solid black;
+    margin: 1vh;
+    height: 6vh;
+    width: 6vw;
+    border-radius: 5px;
+    color: black;
+    background-color: green;
+}
+
 .input-box{
     height: 28vh;
     width: 48vw;

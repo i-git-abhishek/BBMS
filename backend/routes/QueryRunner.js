@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 
-router.post("/", async (requestAnimationFrame, res) => {
+router.post("/", async (req, res) => {
   const { query } = req.body;
 
   try {
