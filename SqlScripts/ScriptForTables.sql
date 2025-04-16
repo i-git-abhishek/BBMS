@@ -12,6 +12,8 @@
     state VARCHAR(50) NOT NULL,
     zipCode VARCHAR(10) NOT NULL,
     eligible BOOLEAN DEFAULT TRUE,
+    medical_conditions TEXT,
+    eligible BOOLEAN DEFAULT TRUE,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0)
 );
 

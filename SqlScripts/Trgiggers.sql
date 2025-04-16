@@ -66,12 +66,16 @@ CREATE OR REPLACE FUNCTION isEligibleToDonate()
 RETURNS TRIGGER AS $$
 DECLARE
     userDOB DATE;
+    isEligible BOOLEAN;
+    userAge INTEGER;
 BEGIN 
-    SELECT DOB INTO userDOB
+    SELECT DOB,eligible INTO userDOB, isEligible
     FROM users
     WHERE userID = NEW.userID;
 
-    IF CURRENT_DATE - userDOB >= INTERVAL '18 years' THEN
+    userAge := EXTRACT(YEAR FROM AGE(CURRENT_DATE, userDOB));
+
+    IF userAge >= 18 AND isEligible THEN
         RETURN NEW;
     ELSE
         RAISE EXCEPTION 'Not Eligible To Donate Blood. ';
