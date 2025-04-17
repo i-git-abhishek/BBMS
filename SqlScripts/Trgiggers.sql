@@ -1,20 +1,26 @@
 CREATE OR REPLACE FUNCTION updateBloodStockOnDonation()
 RETURNS TRIGGER AS $$
+DECLARE
+    userBloodGroup VARCHAR(5);
 BEGIN
+    SELECT bloodGroup INTO userBloodGroup
+    FROM users
+    WHERE userID = NEW.userID;
+
     IF EXISTS(
         SELECT 1 FROM bloodStock
         WHERE hospitalID = NEW.hospitalID
-        AND bloodGroup = NEW.bloodGroup
+        AND bloodGroup = userBloodGroup
     ) THEN
 
         UPDATE bloodStock
         SET quantity = quantity + NEW.quantity
         WHERE hospitalID = NEW.hospitalID
-        AND bloodGroup = NEW.bloodGroup;
+        AND bloodGroup = userBloodGroup;
     
     ELSE
         INSERT INTO bloodStock (hospitalID, bloodGroup, quantity)
-        VALUES (NEW.hospitalID, NEW.bloodGroup, NEW.quantity);
+        VALUES (NEW.hospitalID, userBloodGroup, NEW.quantity);
 
     END IF;
     RETURN NEW;
@@ -78,7 +84,8 @@ BEGIN
     IF userAge >= 18 AND isEligible THEN
         RETURN NEW;
     ELSE
-        RAISE EXCEPTION 'Not Eligible To Donate Blood. ';
+        RAISE NOTICE 'User with ID % is not eligible to donate blood.', NEW.userID;
+        RETURN NULL;
     END IF;
 END;
 $$ LANGUAGE plpgsql;

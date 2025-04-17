@@ -13,9 +13,12 @@
     zipCode VARCHAR(10) NOT NULL,
     eligible BOOLEAN DEFAULT TRUE,
     medical_conditions TEXT,
-    eligible BOOLEAN DEFAULT TRUE,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0)
 );
+
+-- INSERT INTO users (name, DOB, gender, bloodGroup, contact, email, password, address, city, state, zipCode, eligible, medical_conditions) 
+-- VALUES ('Abhishek', '2004-07-20', 'Male', 'B+', '+915786986081', 'abhishek123@gmail.com', '12345678', 'Street 52, Tughlakabad Extn', 'New Delhi', 'Delhi', '110019', TRUE, 'Healthy'),
+-- VALUES ('Ram Raj' , '2001-07-20', 'Male', 'A+', '+915786982381', 'ramraj123@gmail.com', '12345678', 'Street 23, Govindpuri Extn', 'New Delhi', 'Delhi', '110019', TRUE, 'Fatty Liver'),
 
  CREATE TABLE hospitals(
     hospitalID BIGSERIAL PRIMARY KEY,
@@ -31,7 +34,7 @@
  CREATE TABLE bloodStock(
     hospitalID BIGINT,
     bloodGroup VARCHAR(5) CHECK (bloodGroup IN ('A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-')),
-    quantity INT NOT NULL CHECK( quantity >= 0),
+    quantity REAL NOT NULL CHECK( quantity >= 0),
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0),
     PRIMARY KEY (hospitalID, bloodGroup),
     FOREIGN KEY (hospitalID) REFERENCES hospitals(hospitalID) ON DELETE CASCADE
@@ -41,15 +44,19 @@
     donationID BIGSERIAL PRIMARY KEY,
     userID BIGINT REFERENCES users(userID) ON DELETE CASCADE,
     donatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0),
-    quantity INT NOT NULL CHECK( quantity>0),
+    quantity REAL NOT NULL CHECK( quantity>0),
     hospitalID BIGINT REFERENCES hospitals(hospitalID) ON DELETE CASCADE
  );
+--  INSERT INTO donations (userID, quantity, hospitalID) 
+-- VALUES (1, 0.350, 1),
+-- VALUES (5, 0.250, 8),
 
  CREATE TABLE requests(
     reqID BIGSERIAL PRIMARY KEY,
     userID BIGINT REFERENCES users(userID) ON DELETE CASCADE,
     requestedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP(0),
-    quantity INT CHECK (quantity > 0),
+    quantity REAL CHECK (quantity > 0),
     hospitalID BIGINT REFERENCES hospitals(hospitalID) ON DELETE CASCADE,
-    status VARCHAR(10) DEFAULT 'Pending' CHECK (status IN('Pending', 'Approved', 'Rejected')),
+    status VARCHAR(10) DEFAULT 'Pending' CHECK (status IN('Pending', 'Approved', 'Rejected'))
  );
+
