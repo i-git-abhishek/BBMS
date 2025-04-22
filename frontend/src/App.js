@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Router,{BrowserRouter, Route, Routes} from 'react-router-dom';
 import BloodStock from './pages/BloodStock';
 import Hospitals from './pages/Hospitals';
+import Requests from './pages/Requests';
+import Donors from './pages/Donors';
 import CustomQuery from './pages/CustomQuery';
 import AboutUs from './pages/AboutUs';
 import './App.css';
@@ -14,6 +16,8 @@ function App() {
         <Route path = "/" element = {<Home/>} />
         <Route path = "/BloodStock" element = {<BloodStock/>} />
         <Route path = "/Hospitals" element = {<Hospitals/>} />
+        <Route path = "/Requests" element = {<Requests/>} />
+        <Route path = "/Donors" element = {<Donors/>} />
         <Route path = "/CustomQuery" element = {<CustomQuery/>} />
         <Route path = "/AboutUs" element = {<AboutUs/>} />
       </Routes>

@@ -30,6 +30,12 @@ const Navbar = () => {
             <Link className="nav-link" to="/Hospitals">
               Hospitals
             </Link>
+            <Link className="nav-link" to="/Requests">
+              Requests
+            </Link>
+            <Link className="nav-link" to="/Donors">
+              Donors
+            </Link>
             <Link className="nav-link" to="/CustomQuery">
               Custom Query
             </Link>
