@@ -22,22 +22,22 @@ const Navbar = () => {
         <div className="collapse navbar-collapse navbar" id="navbarNavAltMarkup">
           <div className="navbar-nav navbar-child" >
             <Link className="nav-link" to="/">
-              Home
+              Home    
             </Link>
             <Link className="nav-link" to="/BloodStock">
-              Blood Stock
+              Blood Stock    
             </Link>
             <Link className="nav-link" to="/Hospitals">
-              Hospitals
+              Hospitals    
             </Link>
             <Link className="nav-link" to="/Requests">
-              Requests
+              Requests    
             </Link>
             <Link className="nav-link" to="/Donors">
-              Donors
+              Donors    
             </Link>
             <Link className="nav-link" to="/CustomQuery">
-              Custom Query
+              Custom Query    
             </Link>
             <Link className="nav-link" to="/AboutUs">
               About Us
