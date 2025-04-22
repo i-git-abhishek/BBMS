@@ -30,7 +30,6 @@ const Donors = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Submitting:", formData);
       await api.post("/donors", formData);
       setFormData({ userid: "", hospitalid: "", quantity: "" });
       fetchDonations();

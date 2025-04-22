@@ -8,6 +8,7 @@ app.use(express.json());
 
 app.use('/api/query', require('./routes/QueryRunner'));
 app.use('/api/donors', require('./routes/Donors'));
+app.use('/api/requests', require('./routes/Requests'));
 
 app.get('/', (req, res) => {
     res.send('BBMS API Running');
