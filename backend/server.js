@@ -9,6 +9,10 @@ app.use(express.json());
 app.use('/api/query', require('./routes/QueryRunner'));
 app.use('/api/donors', require('./routes/Donors'));
 app.use('/api/requests', require('./routes/Requests'));
+const hospitalsRoute = require('./routes/Hospitals');
+console.log("Loaded hospitals route:", hospitalsRoute);
+app.use('/api/hospitals', hospitalsRoute);
+// app.use('/api/bloodstock', require('./routes/BloodStock'));
 
 app.get('/', (req, res) => {
     res.send('BBMS API Running');

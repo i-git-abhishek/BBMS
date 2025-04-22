@@ -20,6 +20,7 @@ function App() {
         <Route path = "/Donors" element = {<Donors/>} />
         <Route path = "/CustomQuery" element = {<CustomQuery/>} />
         <Route path = "/AboutUs" element = {<AboutUs/>} />
+        
       </Routes>
     </BrowserRouter>
   );
