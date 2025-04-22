@@ -6,15 +6,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Donors = () => {
   const [donations, setDonations] = useState([]);
   const [formData, setFormData] = useState({
-    userID: "",
-    hospitalID: "",
-    Donatedat: "",
+    userid: "",
+    hospitalid: "",
     quantity: "",
   });
 
   const fetchDonations = async () => {
     try {
-      const res = await api.get("/api/donors");
+      const res = await api.get("/donors");
       setDonations(res.data);
     } catch (error) {
       console.error("Error fetching donations:", error.message);
@@ -31,8 +30,9 @@ const Donors = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post("/api/donors", formData);
-      setFormData({ userID: "", hospitalID: "", Donatedat: "", quantity: "" });
+      console.log("Submitting:", formData);
+      await api.post("/donors", formData);
+      setFormData({ userid: "", hospitalid: "", quantity: "" });
       fetchDonations();
     } catch (err) {
       console.error("Error submitting form:", err.message);
@@ -51,8 +51,8 @@ const Donors = () => {
               <input
                 type="text"
                 className="form-control"
-                name="userID"
-                value={formData.userID}
+                name="userid"
+                value={formData.userid}
                 onChange={handleChange}
                 required
               />
@@ -62,19 +62,8 @@ const Donors = () => {
               <input
                 type="text"
                 className="form-control"
-                name="hospitalID"
-                value={formData.hospitalID}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="col-md-3">
-              <label className="form-label">Donation Date</label>
-              <input
-                type="date"
-                className="form-control"
-                name="Donatedat"
-                value={formData.Donatedat}
+                name="hospitalid"
+                value={formData.hospitalid}
                 onChange={handleChange}
                 required
               />
