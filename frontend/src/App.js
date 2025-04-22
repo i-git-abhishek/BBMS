@@ -7,6 +7,7 @@ import Requests from './pages/Requests';
 import Donors from './pages/Donors';
 import CustomQuery from './pages/CustomQuery';
 import AboutUs from './pages/AboutUs';
+import MoreInfo from './pages/MoreInfo';
 import './App.css';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path = "/Donors" element = {<Donors/>} />
         <Route path = "/CustomQuery" element = {<CustomQuery/>} />
         <Route path = "/AboutUs" element = {<AboutUs/>} />
-        
+        <Route path="/blood-group/:group" element={<MoreInfo />} />
       </Routes>
     </BrowserRouter>
   );

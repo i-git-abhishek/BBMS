@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Link} from "react-router-dom";
 
 const bloodGroups = [
   { group: "A+", color: "#ff4d4f" },
@@ -26,7 +27,9 @@ const BloodGroups = () => {
                 <div className="card-body">
                   <h3 className="card-title">{bg.group}</h3>
                   <p className="card-text">View stock, requests & donors</p>
-                  <button className="btn btn-light btn-sm">More Info</button>
+                  <Link to={`/blood-group/${bg.group}`} className="btn btn-light btn-sm">
+                    More Info
+                </Link>
                 </div>
               </div>
             </div>
