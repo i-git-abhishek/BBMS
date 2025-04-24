@@ -27,7 +27,7 @@ const MoreInfo = () => {
       <Navbar />
       <div className="container my-5">
         <h2 className="text-danger">{group} Blood Group</h2>
-        <h5 className="text-secondary mb-4">Total Available: {total} mL</h5>
+        <h5 className="text-secondary mb-4">Total Available: {Math.floor(total)} mL</h5>
         {data.length === 0 ? (
           <p className="text-muted">No hospitals currently have this blood group.</p>
         ) : (
@@ -38,7 +38,7 @@ const MoreInfo = () => {
                   <div className="card-body">
                     <h5 className="card-title text-danger">{h.name}</h5>
                     <p className="card-text">
-                      <strong>Quantity:</strong> {h.quantity}<br />
+                      <strong>Quantity:</strong> {Math.floor(h.quantity)}<br />
                       <strong>Address:</strong> {h.address}, {h.city}, {h.state}, {h.zipcode}<br />
                       <strong>Contact:</strong> {h.contact}<br />
                       <strong>Email:</strong> {h.email}

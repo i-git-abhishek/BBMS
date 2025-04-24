@@ -3,9 +3,9 @@ const router = express.Router();
 const pool = require("../db");
 
 
-router.get("/", (req, res) => {
-    res.send("Register route is working");
-  });
+// router.get("/", (req, res) => {
+//     res.send("Register route is working");
+//   });
 
 
 router.post("/", async (req, res) => {

@@ -39,9 +39,9 @@ const Navbar = () => {
             <Link className="nav-link" to="/CustomQuery">
               Custom Query    
             </Link>
-            <Link className="nav-link" to="/AboutUs">
+            {/* <Link className="nav-link" to="/AboutUs">
               About Us
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
