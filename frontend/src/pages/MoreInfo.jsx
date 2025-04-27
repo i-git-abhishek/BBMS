@@ -11,7 +11,7 @@ const MoreInfo = () => {
   useEffect(() => {
     const fetchGroupInfo = async () => {
       try {
-        const res = await api.get(`/bloodstock/${group}`);
+        const res = await api.get(`/bloodstock/${bloodGroup}`);
         setData(res.data.hospitals); 
         setTotal(res.data.totalQuantity); 
       } catch (err) {
