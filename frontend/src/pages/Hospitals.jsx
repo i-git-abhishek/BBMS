@@ -10,6 +10,7 @@ const Hospitals = () => {
     try {
         console.log(hospitals);  
       const res = await api.get("/hospitals");
+      console.log("Fetched hospitals:", res.data);
       setHospitals(res.data);
     } catch (err) {
       console.error("Error fetching hospitals:", err.message);
